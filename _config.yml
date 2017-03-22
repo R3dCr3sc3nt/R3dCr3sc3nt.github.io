@@ -23,6 +23,7 @@ github_username:  R3dCr3sc3nt
 
 # Build settings
 markdown: kramdown
+theme: jekyll-theme-minimal
 gems:
   - jekyll-feed
 exclude:
