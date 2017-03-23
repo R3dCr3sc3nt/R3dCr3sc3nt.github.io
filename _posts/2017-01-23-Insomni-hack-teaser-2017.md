@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Insomni'hack teaser 2017 
-tags: [ctfwriteups, insomnihack, "2017"]
+tags: [ctfwriteups]
 ---
 
 We solved 3 challenges in this CTF.
@@ -16,7 +16,7 @@ We solved 3 challenges in this CTF.
 >
 > Running on quizz.teaser.insomnihack.ch:1031
 
-#### Solution
+Let's connect to that port and IP with netcat first.
 
     $ nc quizz.teaser.insomnihack.ch 1031
 
@@ -40,7 +40,7 @@ done
 cat names.txt | sort | uniq > unique_names.txt
 ```
 
-`unique_names.txt` ended up having 64 names. While a dynamic solution with API calls might have been more elegant, the fatest solution is to just use Google/Wikipedia. With a few minutes of googling, I had the birth year for all the cryptographers in the [list](unique_names.txt).
+[`unique_names.txt`](/assets/iht2017/unique_names.txt) ended up having 64 names. While a dynamic solution with API calls might have been more elegant, the fatest solution is to just use Google/Wikipedia. With a few minutes of googling, I had the birth year for all the cryptographers in the [list](/assets/iht2017/unique_names.txt).
 
 The final step requires setting up `stdin` and `stdout` pipes for netcat. Since this is cubersome in bash, I wrote a python script leveraging the [socket](https://docs.python.org/3/library/socket.html) module.
 
@@ -94,8 +94,6 @@ Now the damn thing has attacked me and flew away. I can't even seem to track it 
 >
 > [Search interface](http://smarttomcat.teaser.insomnihack.ch/)
 
-#### Solution
-
 The linked interface contains 4 things: a brief text description, a form that takes lat/long coordinates as input, a picture of an animatronic tomcat, and a dynamic map that plots the points submitted in the form. This is the text description:
 
 ```
@@ -126,11 +124,11 @@ u=http%3A%2F%2Flocalhost%3A8080%2Findex.jsp%3Fx%3D0%26y%3D0
 
 The post body contains a request to a java service running on `localhost:8080`. Now the tomcat reference starts to make sense. This is an [Apache Tomcat](https://tomcat.apache.org/) server. After googling around for Apache Tomcat vulnerabilities, I find [this post](http://blog.opensecurityresearch.com/2012/09/manually-exploiting-tomcat-manager.html) about weak credentials in the manager interface. More googling reveals that the manager lives on `localhost:8080/manager/html`. I then modified the form submission post request to hit the manager (in the BurpSuite Repeater).
 
-![Modified Post Request](https://github.com/R3dCr3sc3nt/Insomni-hack-teaser-2017/blob/master/smarttomcat/burpsuite_modified_post.png?raw=true)
+![Modified Post Request](/assets/iht2017/burpsuite_modified_post.png)
 
 Empty credentials don't work, so I try some typical defaults before eventually selecting a winner (tomcat:tomcat).
 
-![Successful modified post](https://github.com/R3dCr3sc3nt/Insomni-hack-teaser-2017/blob/master/smarttomcat/burpsuite_successful_post.png?raw=true)
+![Successful modified post](/assets/iht2017/burpsuite_successful_post.png)
 
 The flag is `INS{th1s_is_re4l_w0rld_pent3st}`.
 
@@ -140,25 +138,28 @@ The flag is `INS{th1s_is_re4l_w0rld_pent3st}`.
 >
 > We've been suspecting Swiss Secure Cloud of secretely doing some pretty advanced research in artifical intelligence and this has recently been confirmed by the fact that one of their AIs seems to have escaped from their premises and has gone rogue. We have no idea whether this poses a threat or not and we need you to investigate what is going on.
 >
-> Luckily, we have a spy inside SSC and they were able to intercept [some communications](TheGreatEscape-3859f9ed7682e1857aaa4f2bcb5867ea6fe88c74.pcapng) over the past week when the breach occured. Maybe you can find some information related to the breach and recover the rogue AI.
+> Luckily, we have a spy inside SSC and they were able to intercept [some communications](/assets/iht2017/TheGreatEscape-3859f9ed7682e1857aaa4f2bcb5867ea6fe88c74.pcapng) over the past week when the breach occured. Maybe you can find some information related to the breach and recover the rogue AI.
 >
 > X
 >
 > Note: All the information you need to solve the 3 parts of this challenge is in the pcap. Once you find the exploit for a given part, you should be able to find the corresponding flag and move on to the next part.
 
-#### Solution
-
 Loading up the pcap file in wireshark shows a bunch of TCP communication along with a few interesting sections of data. The first thing that stuck out was an email sent by rogue@ssc.teaser.insomnihack.ch.
-![Mail](https://github.com/grrr83/Insomni-hack-teaser-2017/blob/master/TheGreatEscape-part1/Mail.png?raw=true)
+
+![Mail](/assets/iht2017/Mail.png)
 
 Ultimately though the key to solving this part of the challenge was found in an FTP-exchange wherein the user `bob` logged in and uploaded a file `ssc.key`:
-![Ftp Data](https://github.com/grrr83/Insomni-hack-teaser-2017/blob/master/TheGreatEscape-part1/FTP.png?raw=true)
+
+![Ftp Data](/assets/iht2017/FTP.png)
 
 `ssc.key` turns out to be an RSA-key that can be used to decrypt the TLS-traffic.
-![RSA Key](https://github.com/grrr83/Insomni-hack-teaser-2017/blob/master/TheGreatEscape-part1/RSA.png?raw=true)
+
+![RSA Key](/assets/iht2017/RSA.png)
 
 Wireshark allows for decryption of TLS-traffic. Insert `ssc.key` in **Edit -> Preferences -> SSL**
-![Decryption](https://github.com/grrr83/Insomni-hack-teaser-2017/blob/master/TheGreatEscape-part1/Wireshark.png?raw=true)
+
+![Decryption](/assets/iht2017/Wireshark.png)
 
 After digging through some of the now decrypted TLS-traffic I found the flag hiding in plain sight in an HTTP header.
-![Flag](https://github.com/grrr83/Insomni-hack-teaser-2017/blob/master/TheGreatEscape-part1/Flag.png?raw=true)
+
+![Flag](/assets/iht2017/Flag.png)
