@@ -1,13 +1,25 @@
-# TextLog v1.0
+# R3d Cr3sc3nt Jekyll Blog
 
-TextLog is a minimalist, distraction-free and content-focused Jekyll theme with flexible content width. TextLog does not have **about page**, instead TextLog has a quite simple homepage; a brief introduction text (about the blog itself or the author bio) and then goes a list of post titles. Font or typeface used is [Droid Sans](https://fonts.google.com/specimen/Droid+Sans) from Google Web Font. Droid Sans is one of the best web fonts with highest readability. TextLog supports [Disqus comment](https://disqus.com/) and [tags](https://heiswayi.github.io/textlog/tagged/).
+### Getting started
 
-[**Live Demo**](https://heiswayi.github.io/textlog)
+1. Install `bundler`
+```
+gem install bundler
+```
 
-### Screenshot
+2. Install the project dependencies
 
-![Screenshot](http://i.imgur.com/htP3Xqc.png)
+3. Run
+```
+jekyll serve
+```
+
+The application should now be running on 127.0.0.1:4000.
+
+### Adding content
+
+### Theme
+The original theme for this blog is [TextLog](https://github.com/heiswayi/textlog).
 
 ### License
-
-[MIT](LICENSE.md)
+All content in this blog is under the [MIT License](LICENSE.md).
