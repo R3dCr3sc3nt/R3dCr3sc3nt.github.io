@@ -13,11 +13,11 @@ Before I get into a review of the course, here is a bit of background about myse
 There are 3 components to the PWK course: a PDF, lecture videos, and the lab network. The PDF and lecture videos are the only pedagogical materials provided by Offensive Security, though don't be fooled. Significant outside research is required to pwn all of the machines in the lab network. The lab network contains ~50 servers in several different subnets, all of which have multiple vulnerabilities. After working through the pedagogical materials, I was able to gain root/administrative privileges on 44 of the 50 machines in a 60 day period. Towards the end of this period, I took and passed the OSCP exam.
 
 ## Preparation and Helpful Links
-Playing in Capture the Flag competitions and doing Vulnhub VMs were excellent preparation for PWK. They put you in the right mindset and get you thinking like a hacker. I started working on CTF-like challenges at [RingZeroTeam](https://ringzer0team.com/) and [OverTheWire](http://overthewire.org/wargames/), and found out about CTFs on [CTFTime](http://ctftime.org/). Shortly after creating an account there, I was contacted by [@charix](https://github.com/charix46) and we formed [R3dCr3sc3nt](https://ctftime.org/team/32761) and started competing together.
+Playing in Capture the Flag competitions and doing Vulnhub VMs were excellent preparation for PWK. They put you in the right mindset and get you thinking like a hacker. I started working on CTF-like challenges at [RingZeroTeam](https://ringzer0team.com/) and [OverTheWire](http://overthewire.org/wargames/), and signed up for real CTFs on [CTFTime](http://ctftime.org/). Shortly after creating an account there, I was contacted by [@charix](https://github.com/charix46) and we formed [R3dCr3sc3nt](https://ctftime.org/team/32761) and started competing together.
 
 For Vulnhub VMs, the [Kioptrix series](https://www.vulnhub.com/?q=Kioptrix&sort=date-asc&type=vm) provide a gentle introduction to pwning, thought sometimes it's a little tricky to get these running because the images are quite old. A more comprehensive list of machines that machines that are similar to the PWK lab servers is maintained by the the NetSec Focus community [here](https://docs.google.com/spreadsheets/d/1dwSMIAPIam0PuRBkCiDI88pU3yzrqqHkDtBngUHNCw8/edit#gid=0). I personally didn't invest very much time in rooting these VMs prior to the beginning of PWK, but I did find reading the walkthroughs insightful. They helped me a sense of the typical enumeration steps taken in a pentesting scenario.
 
-Finally, it's important to get plugged into the right communities. Start reading the [netsec subreddit](https://www.reddit.com/r/netsec/) and join the [NetSec Focus room](https://netsecfocus.slack.com) on Slack. Once registered for PWK, request to be added to the OSCP channel.
+Finally, it's important to get plugged into the right communities. Start reading the [netsec subreddit](https://www.reddit.com/r/netsec/) and join the [NetSec Focus room](https://netsecfocus.slack.com) on Slack. Once registered for PWK, request to be added to the #oscp channel.
 
 Coming from a software background, I was concerned that my networking and Windows knowledge wouldn't be enough to be successful in this course. For the networking, I found the [wikipedia article on CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) to be helpful in explaining how IP address blocks work. For Windows, lots of googling was required. Here are a list of links that were particularly useful references for me:
 - [Fuzzy Security Windows Privilege Escalation Fundamentals](http://www.fuzzysecurity.com/tutorials/16.html)
@@ -28,7 +28,7 @@ Coming from a software background, I was concerned that my networking and Window
 
 For Linux, my prior work experience, combined with the CTFs and vulnhubs proved to be adequate preparation. During the course, these links also came in handy.
 
-- [Basic Linux Privilege Escalation](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/).
+- [Basic Linux Privilege Escalation](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/)
 - [linuxprivchecker.py](http://www.securitysift.com/download/linuxprivchecker.py)
 
 There are a veritable plethora of resources available to people interested in learning about security topics more broadly. The last resource that I'll mention is a list of resources that might be a little easy to get lost in.
