@@ -57,6 +57,6 @@ When I received the email from Offensive Security confirming that I had passed t
 
 ## Conclusions
 
-Overall, I found the course content and exam to be fun, addictive, challenging and rewarding. However, it wasn't the life-changing, brain-melting experience that I had heard/read about elsewhere. Maybe this is because I didn't have to balance the demands of a full-time job while taking the course, or because the CTFs had primed me to expect the worst. Either way, it was a good experience that I would recommend to anyone interested in breaking into the security field or simply interested in hacking.
+Overall, I found the course content and exam to be fun, addictive, challenging and rewarding. The scope of the content covers fundamental skills that might be hard to acquire in a less structured way. However, it wasn't the life-changing, brain-melting experience that I had heard/read about elsewhere. Maybe this is because I didn't have to balance the demands of a full-time job while taking the course, or because the CTFs had primed me to expect the worst. Either way, it was a good experience that I would recommend to anyone interested in breaking into the security field or simply interested in hacking.
 
 \* I was later reminded that Shellshock does infact make an appearance in the course. My bad.
